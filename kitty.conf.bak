@@ -1,0 +1,139 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# Theme
+# include ./tokyonight_night.conf
+# include ./nightfox_kitty.conf
+#include ./Solarized_Dark_-_Patched.conf
+include ./rose-pine.conf
+# include ./duskfox_kitty.conf
+
+font_family      MesloLGSDZ Nerd Font Mono Regular
+font_size 13.5
+
+draw_minimal_borders yes
+inactive_text_alpha 0.7
+hide_window_decorations no
+
+#editor nvim
+# macos_titlebar_color background
+macos_thicken_font 0.75
+# active_border_color none
+
+# default layout is vertical splits only
+# enabled_layouts splits
+
+window_border_width 3px
+enable_audio_bell no
+
+# tab bar styles
+tab_bar_edge top
+#tab_title_template "{fmt.fg.c2c2c2}{title}"
+#active_tab_title_template "{fmt.fg._fff}{title}"
+#active_tab_foreground   #fff
+#active_tab_background   #E34D65
+#inactive_tab_foreground #c2c2c2
+#inactive_tab_background #E34D65
+
+scrollback_lines 4000
+
+# cursor setup
+cursor_shape block
+cursor_beam_thickness 1.5
+
+# tab bar
+tab_bar_style slant
+# tab_bar_style powerline
+tab_powerline_style angled
+tab_separator " ┇"
+
+# ===== Mappings =====
+
+# open new split (window) with cmd+d retaining the cwd
+map cmd+w close_window
+map cmd+shif+n new_os_window
+map cmd+d launch --location=hsplit --cwd=current
+map cmd+shift+d launch --location=vsplit --cwd=current
+
+# open new tab with cmd+t
+map cmd+t new_tab
+
+# switch between next and previous splits
+map cmd+]        next_window
+map cmd+[        previous_window
+
+# clear the terminal screen
+#map cmd+k combine : clear_terminal scrollback active : send_text normal,application \x0c
+
+map cmd+k clear_terminal to_cursor active 🍎
+
+
+# jump to beginning and end of word
+map alt+b send_text all \x1b\x62
+map alt+f send_text all \x1b\x66
+#map ctrl+b send_text all \x1b\x62
+#map ctrl+f send_text all \x1b\x66
+
+# Map cmd + <num> to corresponding tabs
+map cmd+1 goto_tab 1
+map cmd+2 goto_tab 2
+map cmd+3 goto_tab 3
+map cmd+4 goto_tab 4
+map cmd+5 goto_tab 5
+map cmd+6 goto_tab 6
+map cmd+7 goto_tab 7
+map cmd+8 goto_tab 8
+map cmd+9 goto_tab 9
+
+# changing font sizes
+map cmd+equal    change_font_size all +2.0
+map cmd+minus    change_font_size all -2.0
+map cmd+0        change_font_size all 0
+
+
+map cmd+c        copy_to_clipboard
+map cmd+v        paste_from_clipboard
+
+map shift+alt+ctrl+g launch --cwd=current lazygit
+
+
+# Reload kitty
+map ctrl+shift+f5 load_config_file
+map ctrl+cmd+, load_config_file 🍎
+
+# Function keys
+map f1 create_marker
+map f2 remove_marker
+map f3 launch --stdin-source=@screen_scrollback --stdin-add-formatting bat
+
+# map f10 set_colors --configured /Users/dzyla/.config/kitty/tokyonight_day.conf
+# map f10 set_colors --configured /Users/dzyla/.config/kitty/dawnfox_kitty.conf
+# map f10 set_colors --configured /Users/dzyla/.config/kitty/nightfox_kitty.conf
+#map f8 set_colors --configured /Users/dzyla/.config/kitty/Solarized_Dark_-_Patched.conf
+
+# map f9 set_colors --configured /Users/dzyla/.config/kitty/tokyonight_night.conf
+# map f9 set_colors --configured /Users/dzyla/.config/kitty/duskfox_kitty.conf
+# map f9 set_colors --configured /Users/dzyla/.config/kitty/dayfox_kitty.conf
+#map f9 set_colors --configured /Users/dzyla/.config/kitty/Solarized_Light.conf
+
+map f8 set_colors --configured /Users/dzyla/.config/kitty/rose-pine.conf
+map f9 set_colors --configured /Users/dzyla/.config/kitty/rose-pine-dawn.conf
+
+# use left alt as esc+
+# NOTE: This setting works with Moonlander keyboard but not native
+macos_option_as_alt left
+#
+# NOTE: This setting works with native keyboard
+# macos_option_as_alt right
+
+shell_integration no-cursor
+
+visual_bell_duration 0.1
+bell_on_tab "🔔 "
+
+map cmd+f      launch --location=hsplit --allow-remote-control kitty +kitten search.py @active-kitty-window-id
+
+
+# BEGIN_KITTY_THEME
+# Rosé Pine
+include current-theme.conf
+# END_KITTY_THEME
